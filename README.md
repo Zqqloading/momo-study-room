@@ -3,7 +3,7 @@
 MOMO 是一个本地优先的 AI 学习搭子：材料经摄取成为带出处的知识，开始学习时按「最近失手 → 掌握度最低」
 选题，一场 5 题逐题评分；自由对话可查本地知识库，必要时联网搜索。语音与 3D 形象随仓库分发。
 
-![MOMO 学习搭子](docs/assets/screenshot-home.png)
+![MOMO 学习搭子 · 学习单元逐题评分](docs/assets/screenshot-home.png)
 
 **English** — MOMO is a local-first AI study companion. Feed it your notes, get cited knowledge,
 study in 5-question units with per-answer scoring, and talk freely with retrieval-backed answers.
