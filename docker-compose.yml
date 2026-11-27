@@ -1,0 +1,12 @@
+services:
+  momo:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./materials:/app/materials
+    env_file:
+      - path: .env
+        required: false
+    restart: unless-stopped

@@ -1,0 +1,64 @@
+{
+  "when": "2026-11-23T11:27:42",
+  "mode": "real",
+  "providers": {
+    "mode": "real",
+    "kinds": {
+      "llm": "mimo",
+      "asr": "mimo_asr",
+      "tts": "breeze"
+    },
+    "asr": {
+      "label": "MiMo ASR",
+      "base_url": "https://api.xiaomimimo.com/v1",
+      "model": "mimo-v2.5-asr",
+      "configured": true,
+      "has_key": true
+    },
+    "llm": {
+      "label": "MiMo LLM",
+      "base_url": "https://api.xiaomimimo.com/v1",
+      "model": "mimo-v2.6-flash",
+      "configured": true,
+      "has_key": true
+    },
+    "tts": {
+      "label": "Breeze TTS",
+      "base_url": "https://api.breeze.blue",
+      "model": "breeze-tts-2",
+      "configured": true,
+      "has_key": true
+    },
+    "scorer": {
+      "label": "DeepSeek Flash",
+      "base_url": "https://api.deepseek.com/v1",
+      "model": "deepseek-chat",
+      "configured": true,
+      "has_key": true
+    }
+  },
+  "results": [
+    {
+      "provider": "DeepSeek Flash",
+      "adapter": "openai-compatible-scorer",
+      "mode": "real",
+      "ok": true,
+      "error": "",
+      "metrics": {
+        "runs": 3,
+        "parsable": 3,
+        "parse_rate": 1.0,
+        "avg_latency_ms": 979,
+        "scores": [
+          90,
+          90,
+          90
+        ]
+      },
+      "detail": {
+        "contract": "questions[].score/why/misconception_hit/certain + session_misconception",
+        "rule": "任何一次输出不符合契约都判失败；稳定性门槛等 20 条人工对照后再定"
+      }
+    }
+  ]
+}

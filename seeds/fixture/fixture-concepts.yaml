@@ -1,0 +1,29 @@
+version: 1
+concepts:
+  - id: agent-loop
+    name: Agent 循环
+    aliases: [智能体循环, agent loop]
+    plain_def: Agent 反复执行观察、决策、行动，直到目标完成或失败。
+    difficulty: 1
+    prerequisites: []
+    source:
+      url: fixture://agent-loop
+      excerpt: Agent 通过观察环境、选择行动并执行，循环直到目标达成或失败。
+  - id: tool-use
+    name: 工具调用
+    aliases: [tool use, 调用工具]
+    plain_def: Agent 借助外部工具把想法变成能改变世界的实际操作。
+    difficulty: 2
+    prerequisites: [agent-loop]
+    source:
+      url: fixture://tool-use
+      excerpt: 工具调用让 Agent 能查询实时信息、执行操作，而不只依赖模型内部知识。
+  - id: memory
+    name: 记忆
+    aliases: [memory, 上下文记忆]
+    plain_def: Agent 保存跨轮次的信息，供后续决策继续使用。
+    difficulty: 2
+    prerequisites: [agent-loop]
+    source:
+      url: fixture://memory
+      excerpt: 记忆保存用户偏好、已完成步骤与关键事实，避免重复询问和上下文丢失。

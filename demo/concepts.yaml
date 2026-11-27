@@ -1,0 +1,71 @@
+version: 1
+concepts:
+- id: 工具描述
+  name: 工具描述
+  aliases:
+  - 工具说明
+  plain_def: 告诉模型这个工具干什么、参数怎么填的文字，写不清楚模型就会乱调。
+  difficulty: 1
+  prerequisites: []
+  source:
+    material: demo/materials/Agent-工具调用基础.md
+    url: local://demo/materials/Agent-工具调用基础.md
+    excerpt: 把工具描述写成营销文案，模型看不出参数边界，调用参数经常缺失
+- id: 工具返回噪声
+  name: 工具返回噪声
+  aliases:
+  - 返回内容冗余
+  plain_def: 工具把整页 HTML 等无关内容塞回给模型，模型抓不住重点就开始编。
+  difficulty: 2
+  prerequisites:
+  - 工具描述
+  source:
+    material: demo/materials/Agent-工具调用基础.md
+    url: local://demo/materials/Agent-工具调用基础.md
+    excerpt: 工具返回整页 HTML，模型被噪声淹没，回答开始编造
+- id: 空结果与未查到
+  name: 空结果与未查到
+  aliases:
+  - 空结果区分
+  plain_def: “没查到”和“查到了但结果为空”是两回事，混在一起用户会误解。
+  difficulty: 2
+  prerequisites:
+  - 工具描述
+  source:
+    material: demo/materials/Agent-工具调用基础.md
+    url: local://demo/materials/Agent-工具调用基础.md
+    excerpt: 不区分"没查到"和"查到了空结果"，两者对用户的含义完全不同
+- id: 切块
+  name: 切块
+  aliases:
+  - chunking
+  plain_def: 把文档切成小块，检索时以块为单位匹配，而不是整份文档
+  difficulty: 1
+  prerequisites: []
+  source:
+    material: demo/materials/RAG-检索与出处.md
+    url: local://demo/materials/RAG-检索与出处.md
+    excerpt: 检索的最小单位是块（chunk），不是整份文档。
+- id: 按结构切
+  name: 按结构切
+  aliases:
+  - 结构切块
+  plain_def: 跟着标题层级切，先合成父块再按段落切子块，召回时上下文不会断
+  difficulty: 2
+  prerequisites:
+  - 切块
+  source:
+    material: demo/materials/RAG-检索与出处.md
+    url: local://demo/materials/RAG-检索与出处.md
+    excerpt: 按结构切：跟着标题层级切，先把一节合成父块，再按段落切成子块。
+- id: 混合检索
+  name: 混合检索
+  aliases: []
+  plain_def: 把关键词检索和向量检索两路结果合并，弥补单一检索的短板
+  difficulty: 2
+  prerequisites:
+  - 切块
+  source:
+    material: demo/materials/RAG-检索与出处.md
+    url: local://demo/materials/RAG-检索与出处.md
+    excerpt: 混合检索把两路结果合并

@@ -1,0 +1,656 @@
+[
+  {
+    "id": "agent-loop-recall-1",
+    "concept_id": "agent-loop",
+    "kind": "recall",
+    "question_text": "用自己的话说说 Agent 循环包含哪几步？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "至少说出观察、决策、行动三步，并能说清顺序"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://agent-loop",
+    "source_excerpt": "Agent 通过观察环境、选择行动并执行，循环直到目标达成或失败。"
+  },
+  {
+    "id": "agent-loop-recall-2",
+    "concept_id": "agent-loop",
+    "kind": "recall",
+    "question_text": "Agent 循环在什么条件下结束？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "说出目标达成、失败或超时、用户主动终止之一即可"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://agent-loop",
+    "source_excerpt": "Agent 通过观察环境、选择行动并执行，循环直到目标达成或失败。"
+  },
+  {
+    "id": "agent-loop-discriminate-1",
+    "concept_id": "agent-loop",
+    "kind": "discriminate",
+    "question_text": "下面哪一步属于 Agent 循环里的「行动」？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "选 C：打开天气网站查询",
+      "explanation": "观察是读取已有信息，决策是判断；打开网站查询会改变外部状态，所以是行动。"
+    },
+    "options_json": {
+      "A": "读取当前天气",
+      "B": "判断要不要带伞",
+      "C": "打开天气网站查询",
+      "D": "回忆昨天的天气"
+    },
+    "answer_key": "C",
+    "source_url": "fixture://agent-loop",
+    "source_excerpt": "Agent 通过观察环境、选择行动并执行，循环直到目标达成或失败。"
+  },
+  {
+    "id": "agent-loop-discriminate-2",
+    "concept_id": "agent-loop",
+    "kind": "discriminate",
+    "question_text": "只观察一次就直接输出答案、不再采取行动，这算完整的 Agent 循环吗？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "选 B：不算，缺少行动与再观察",
+      "explanation": "循环要求行动后再次观察结果；只观察一次就输出，没有验证行动是否有效。"
+    },
+    "options_json": {
+      "A": "算，观察就是行动",
+      "B": "不算，缺少行动与再观察",
+      "C": "算，只要输出就算",
+      "D": "不算，因为缺少用户输入"
+    },
+    "answer_key": "B",
+    "source_url": "fixture://agent-loop",
+    "source_excerpt": "Agent 通过观察环境、选择行动并执行，循环直到目标达成或失败。"
+  },
+  {
+    "id": "agent-loop-apply-1",
+    "concept_id": "agent-loop",
+    "kind": "apply",
+    "question_text": "设计一个「查天气并决定是否带伞」的 Agent 循环，写出你会执行的三步。",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "观察=获取天气；决策=判断降雨概率或温度；行动=给出带伞建议"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://agent-loop",
+    "source_excerpt": "Agent 通过观察环境、选择行动并执行，循环直到目标达成或失败。"
+  },
+  {
+    "id": "agent-loop-apply-2",
+    "concept_id": "agent-loop",
+    "kind": "apply",
+    "question_text": "一次行动后观察结果没有变化，Agent 下一步应该怎么做？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "检查是否卡住；换策略，或结束并说明原因"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://agent-loop",
+    "source_excerpt": "Agent 通过观察环境、选择行动并执行，循环直到目标达成或失败。"
+  },
+  {
+    "id": "tool-use-recall-1",
+    "concept_id": "tool-use",
+    "kind": "recall",
+    "question_text": "工具调用解决的是什么问题？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "把模型的想法变成对外部系统的实际操作，或获取实时信息"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://tool-use",
+    "source_excerpt": "工具调用让 Agent 能查询实时信息、执行操作，而不只依赖模型内部知识。"
+  },
+  {
+    "id": "tool-use-recall-2",
+    "concept_id": "tool-use",
+    "kind": "recall",
+    "question_text": "调用工具前，Agent 需要先确定什么？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "选哪个工具、传什么参数、什么时候调用"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://tool-use",
+    "source_excerpt": "工具调用让 Agent 能查询实时信息、执行操作，而不只依赖模型内部知识。"
+  },
+  {
+    "id": "tool-use-discriminate-1",
+    "concept_id": "tool-use",
+    "kind": "discriminate",
+    "question_text": "下面哪个场景最适合用工具调用？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "选 B：查询今天的汇率",
+      "explanation": "汇率是实时外部数据，模型内部知识会过期；查询工具才能拿到当前值。"
+    },
+    "options_json": {
+      "A": "解释一个名词",
+      "B": "查询今天的汇率",
+      "C": "复述用户的话",
+      "D": "写一个比喻"
+    },
+    "answer_key": "B",
+    "source_url": "fixture://tool-use",
+    "source_excerpt": "工具调用让 Agent 能查询实时信息、执行操作，而不只依赖模型内部知识。"
+  },
+  {
+    "id": "tool-use-discriminate-2",
+    "concept_id": "tool-use",
+    "kind": "discriminate",
+    "question_text": "工具返回报错时，正确做法是？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "选 C：读取错误并决定重试或换工具",
+      "explanation": "报错也是工具返回的观察结果，应据此决定重试还是换工具，不能当成功或忽略。"
+    },
+    "options_json": {
+      "A": "忽略错误继续编",
+      "B": "把报错当成功结果",
+      "C": "读取错误并决定重试或换工具",
+      "D": "立即结束会话"
+    },
+    "answer_key": "C",
+    "source_url": "fixture://tool-use",
+    "source_excerpt": "工具调用让 Agent 能查询实时信息、执行操作，而不只依赖模型内部知识。"
+  },
+  {
+    "id": "tool-use-apply-1",
+    "concept_id": "tool-use",
+    "kind": "apply",
+    "question_text": "用户问「明天上海会下雨吗」，写出你会调用的工具与参数。",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "天气查询工具；城市=上海，日期=明天"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://tool-use",
+    "source_excerpt": "工具调用让 Agent 能查询实时信息、执行操作，而不只依赖模型内部知识。"
+  },
+  {
+    "id": "tool-use-apply-2",
+    "concept_id": "tool-use",
+    "kind": "apply",
+    "question_text": "两个工具都能查天气：一个要付费但实时，一个免费但延迟一天。你怎么选？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "按场景选：明天预报可用免费，实时需求用付费；说明理由"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://tool-use",
+    "source_excerpt": "工具调用让 Agent 能查询实时信息、执行操作，而不只依赖模型内部知识。"
+  },
+  {
+    "id": "memory-recall-1",
+    "concept_id": "memory",
+    "kind": "recall",
+    "question_text": "Agent 的「记忆」解决什么问题？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "跨轮次保留信息，避免重复询问或丢失上下文"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://memory",
+    "source_excerpt": "记忆保存用户偏好、已完成步骤与关键事实，避免重复询问和上下文丢失。"
+  },
+  {
+    "id": "memory-recall-2",
+    "concept_id": "memory",
+    "kind": "recall",
+    "question_text": "记忆里通常存哪些内容？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "用户偏好、已完成步骤、关键事实或约束"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://memory",
+    "source_excerpt": "记忆保存用户偏好、已完成步骤与关键事实，避免重复询问和上下文丢失。"
+  },
+  {
+    "id": "memory-discriminate-1",
+    "concept_id": "memory",
+    "kind": "discriminate",
+    "question_text": "下面哪项最该写进长期记忆？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "选 B：用户说以后都用中文回答",
+      "explanation": "偏好会跨会话持续生效；语气词、按钮颜色、随机数都是短时或无关信息。"
+    },
+    "options_json": {
+      "A": "用户这次说「嗯」",
+      "B": "用户说以后都用中文回答",
+      "C": "当前页面的按钮颜色",
+      "D": "模型这次的随机种子"
+    },
+    "answer_key": "B",
+    "source_url": "fixture://memory",
+    "source_excerpt": "记忆保存用户偏好、已完成步骤与关键事实，避免重复询问和上下文丢失。"
+  },
+  {
+    "id": "memory-discriminate-2",
+    "concept_id": "memory",
+    "kind": "discriminate",
+    "question_text": "记忆过期后应该怎么处理？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "选 B：按时间或有效性清理、更新",
+      "explanation": "记忆会过期或失效，应按时间与有效性清理更新；永久保留会误导后续决策。"
+    },
+    "options_json": {
+      "A": "永远保留",
+      "B": "按时间或有效性清理、更新",
+      "C": "全部删除",
+      "D": "完全忽略"
+    },
+    "answer_key": "B",
+    "source_url": "fixture://memory",
+    "source_excerpt": "记忆保存用户偏好、已完成步骤与关键事实，避免重复询问和上下文丢失。"
+  },
+  {
+    "id": "memory-apply-1",
+    "concept_id": "memory",
+    "kind": "apply",
+    "question_text": "用户昨天说「我在学 agent」，今天又问「继续」，你会从记忆里取什么？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "取学习主题、上次进度、偏好，并用它决定今天讲什么"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://memory",
+    "source_excerpt": "记忆保存用户偏好、已完成步骤与关键事实，避免重复询问和上下文丢失。"
+  },
+  {
+    "id": "memory-apply-2",
+    "concept_id": "memory",
+    "kind": "apply",
+    "question_text": "设计一条规则，判断一条信息该进短期记忆还是长期记忆。",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "按跨会话是否需要、时效性、是否用户偏好等条件判断"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://memory",
+    "source_excerpt": "记忆保存用户偏好、已完成步骤与关键事实，避免重复询问和上下文丢失。"
+  },
+  {
+    "id": "agent-loop-recall-3",
+    "concept_id": "agent-loop",
+    "kind": "recall",
+    "question_text": "循环里的「观察」具体在做什么？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "读取环境或工具返回的信息，作为下一步判断的依据"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://agent-loop",
+    "source_excerpt": "Agent 通过观察环境、选择行动并执行，循环直到目标达成或失败。"
+  },
+  {
+    "id": "agent-loop-recall-4",
+    "concept_id": "agent-loop",
+    "kind": "recall",
+    "question_text": "为什么 Agent 不能只行动、不观察？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "没有观察就无法知道行动结果，容易重复错误或偏离目标"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://agent-loop",
+    "source_excerpt": "Agent 通过观察环境、选择行动并执行，循环直到目标达成或失败。"
+  },
+  {
+    "id": "agent-loop-discriminate-3",
+    "concept_id": "agent-loop",
+    "kind": "discriminate",
+    "question_text": "下面哪个不是 Agent 循环里的步骤？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "选 D：编译代码",
+      "explanation": "循环只有观察、决策、行动三步；编译是具体工具动作，不是循环阶段。"
+    },
+    "options_json": {
+      "A": "观察",
+      "B": "决策",
+      "C": "行动",
+      "D": "编译代码"
+    },
+    "answer_key": "D",
+    "source_url": "fixture://agent-loop",
+    "source_excerpt": "Agent 通过观察环境、选择行动并执行，循环直到目标达成或失败。"
+  },
+  {
+    "id": "agent-loop-apply-3",
+    "concept_id": "agent-loop",
+    "kind": "apply",
+    "question_text": "用户说「帮我查下明天天气」，写出你的第一次观察与行动。",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "观察=确认城市与日期；行动=调用天气工具查询"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://agent-loop",
+    "source_excerpt": "Agent 通过观察环境、选择行动并执行，循环直到目标达成或失败。"
+  },
+  {
+    "id": "tool-use-recall-3",
+    "concept_id": "tool-use",
+    "kind": "recall",
+    "question_text": "工具返回的结果应该怎么被 Agent 使用？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "作为下一步决策的输入，而不是直接当最终答案"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://tool-use",
+    "source_excerpt": "工具调用让 Agent 能查询实时信息、执行操作，而不只依赖模型内部知识。"
+  },
+  {
+    "id": "tool-use-recall-4",
+    "concept_id": "tool-use",
+    "kind": "recall",
+    "question_text": "为什么工具调用要限定参数范围？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "避免误操作或无效调用，降低风险"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://tool-use",
+    "source_excerpt": "工具调用让 Agent 能查询实时信息、执行操作，而不只依赖模型内部知识。"
+  },
+  {
+    "id": "tool-use-discriminate-3",
+    "concept_id": "tool-use",
+    "kind": "discriminate",
+    "question_text": "下面哪种情况不需要工具调用？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "选 B：解释什么是循环",
+      "explanation": "解释概念靠模型已有知识就够；查询、发邮件、查数据库才需要外部工具。"
+    },
+    "options_json": {
+      "A": "查询实时股价",
+      "B": "解释什么是循环",
+      "C": "发一封邮件",
+      "D": "查询数据库"
+    },
+    "answer_key": "B",
+    "source_url": "fixture://tool-use",
+    "source_excerpt": "工具调用让 Agent 能查询实时信息、执行操作，而不只依赖模型内部知识。"
+  },
+  {
+    "id": "tool-use-apply-3",
+    "concept_id": "tool-use",
+    "kind": "apply",
+    "question_text": "用户说「把这句英文翻译成中文」，你会怎么判断要不要用工具？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "模型本身能翻译，通常不用工具；除非要求术语库或一致性"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://tool-use",
+    "source_excerpt": "工具调用让 Agent 能查询实时信息、执行操作，而不只依赖模型内部知识。"
+  },
+  {
+    "id": "memory-recall-3",
+    "concept_id": "memory",
+    "kind": "recall",
+    "question_text": "短期记忆和长期记忆的区别是什么？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "保留时长与是否跨会话；短期服务当前任务，长期存偏好与事实"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://memory",
+    "source_excerpt": "记忆保存用户偏好、已完成步骤与关键事实，避免重复询问和上下文丢失。"
+  },
+  {
+    "id": "memory-recall-4",
+    "concept_id": "memory",
+    "kind": "recall",
+    "question_text": "记忆写错时应该怎么办？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "允许修正或覆盖，并保留来源与时间"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://memory",
+    "source_excerpt": "记忆保存用户偏好、已完成步骤与关键事实，避免重复询问和上下文丢失。"
+  },
+  {
+    "id": "memory-discriminate-3",
+    "concept_id": "memory",
+    "kind": "discriminate",
+    "question_text": "下面哪项不该写进记忆？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "选 C：模型的随机数",
+      "explanation": "随机数对后续决策没有意义；偏好、目标和进度才值得写入记忆。"
+    },
+    "options_json": {
+      "A": "用户偏好中文",
+      "B": "用户说过的目标",
+      "C": "模型的随机数",
+      "D": "上次学习进度"
+    },
+    "answer_key": "C",
+    "source_url": "fixture://memory",
+    "source_excerpt": "记忆保存用户偏好、已完成步骤与关键事实，避免重复询问和上下文丢失。"
+  },
+  {
+    "id": "memory-apply-3",
+    "concept_id": "memory",
+    "kind": "apply",
+    "question_text": "用户换了学习目标，旧记忆应该怎么处理？",
+    "rubric_json": {
+      "levels": [
+        0,
+        40,
+        70,
+        90,
+        100
+      ],
+      "criteria": "更新或标记过期，不继续用旧目标做决策"
+    },
+    "options_json": null,
+    "answer_key": null,
+    "source_url": "fixture://memory",
+    "source_excerpt": "记忆保存用户偏好、已完成步骤与关键事实，避免重复询问和上下文丢失。"
+  }
+]

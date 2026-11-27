@@ -1,0 +1,85 @@
+{
+  "when": "2026-11-22T21:15:41",
+  "mode": "real",
+  "providers": {
+    "mode": "real",
+    "kinds": {
+      "llm": "mimo",
+      "asr": "mimo_asr",
+      "tts": "breeze"
+    },
+    "asr": {
+      "label": "MiMo ASR",
+      "base_url": "https://api.xiaomimimo.com/v1",
+      "model": "mimo-v2.5-asr",
+      "configured": true,
+      "has_key": true
+    },
+    "llm": {
+      "label": "MiMo LLM",
+      "base_url": "https://api.xiaomimimo.com/v1",
+      "model": "mimo-v2.6-flash",
+      "configured": true,
+      "has_key": true
+    },
+    "tts": {
+      "label": "Breeze TTS",
+      "base_url": "https://api.breeze.blue",
+      "model": "breeze-tts-2",
+      "configured": true,
+      "has_key": true
+    },
+    "scorer": {
+      "label": "DeepSeek Flash",
+      "base_url": "",
+      "model": "",
+      "configured": false,
+      "has_key": true
+    }
+  },
+  "results": [
+    {
+      "provider": "MiMo LLM",
+      "adapter": "mimo-llm",
+      "mode": "real",
+      "ok": false,
+      "error": "MiMo LLM 返回 HTTP 402：{\n    \"error\": {\n        \"code\": \"402\",\n        \"message\": \"Insufficient account balance\",\n        \"type\": \"insufficient_balance\"\n    }\n}\n",
+      "metrics": {
+        "total_ms": 557
+      },
+      "detail": {}
+    },
+    {
+      "provider": "MiMo ASR",
+      "adapter": "mimo-asr",
+      "mode": "real",
+      "ok": false,
+      "error": "MiMo ASR 返回 HTTP 402：{\n    \"error\": {\n        \"code\": \"402\",\n        \"message\": \"Insufficient account balance\",\n        \"type\": \"insufficient_balance\"\n    }\n}\n",
+      "metrics": {
+        "total_ms": 175
+      },
+      "detail": {}
+    },
+    {
+      "provider": "Breeze TTS",
+      "adapter": "breeze-tts",
+      "mode": "real",
+      "ok": true,
+      "error": "",
+      "metrics": {
+        "total_ms": 3400,
+        "first_chunk_ms": null,
+        "bytes": 103296,
+        "mime": "audio/mpeg",
+        "supports_streaming": true,
+        "stream_first_chunk_ms": 468,
+        "stream_total_ms": 4078,
+        "stream_bytes": 103296,
+        "stream_chunks": 82
+      },
+      "detail": {
+        "text": "你好，我是你的学习搭子。今天用你自己的话说说，agent 是什么。"
+      }
+    }
+  ]
+}

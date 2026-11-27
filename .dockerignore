@@ -1,0 +1,16 @@
+.git
+.gstack
+.scratch
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+/.env
+/data
+/materials
+/concepts.yaml
+*.wav
+/docs/designs/asr-test-set/audio
+/graphify-out
+/admin-ui/node_modules
+/web/admin

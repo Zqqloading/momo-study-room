@@ -1,0 +1,75 @@
+{
+  "when": "2026-11-22T21:13:47",
+  "mode": "real",
+  "providers": {
+    "mode": "real",
+    "kinds": {
+      "llm": "mimo",
+      "asr": "mimo_asr",
+      "tts": "breeze"
+    },
+    "asr": {
+      "label": "MiMo ASR",
+      "base_url": "https://api.xiaomimimo.com/v1",
+      "model": "mimo-v2.5-asr",
+      "configured": true,
+      "has_key": true
+    },
+    "llm": {
+      "label": "MiMo LLM",
+      "base_url": "https://api.xiaomimimo.com/v1",
+      "model": "mimo-v2.6-flash",
+      "configured": true,
+      "has_key": false
+    },
+    "tts": {
+      "label": "Breeze TTS",
+      "base_url": "https://api.breeze.blue",
+      "model": "breeze-tts-2",
+      "configured": true,
+      "has_key": true
+    },
+    "scorer": {
+      "label": "DeepSeek Flash",
+      "base_url": "",
+      "model": "",
+      "configured": false,
+      "has_key": true
+    }
+  },
+  "results": [
+    {
+      "provider": "MiMo LLM",
+      "adapter": "mimo-llm",
+      "mode": "real",
+      "ok": false,
+      "error": "MiMo LLM 返回 HTTP 401：{\n    \"error\": {\n        \"message\": \"Invalid API Key\",\n        \"param\": \"Please provide valid API Key\",\n        \"code\": \"401\",\n        \"type\": \"invalid_key\"\n    }\n}\n",
+      "metrics": {
+        "total_ms": 372
+      },
+      "detail": {}
+    },
+    {
+      "provider": "MiMo ASR",
+      "adapter": "mimo-asr",
+      "mode": "real",
+      "ok": false,
+      "error": "MiMo ASR 返回 HTTP 402：{\n    \"error\": {\n        \"code\": \"402\",\n        \"message\": \"Insufficient account balance\",\n        \"type\": \"insufficient_balance\"\n    }\n}\n",
+      "metrics": {
+        "total_ms": 385
+      },
+      "detail": {}
+    },
+    {
+      "provider": "Breeze TTS",
+      "adapter": "breeze-tts",
+      "mode": "real",
+      "ok": false,
+      "error": "TTS_VOICE 未配置：Breeze 需要 voice_id（形如 voc_...），从控制台复制",
+      "metrics": {
+        "total_ms": 0
+      },
+      "detail": {}
+    }
+  ]
+}

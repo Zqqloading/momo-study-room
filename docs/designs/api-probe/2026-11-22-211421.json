@@ -1,0 +1,59 @@
+{
+  "when": "2026-11-22T21:14:21",
+  "mode": "real",
+  "providers": {
+    "mode": "real",
+    "kinds": {
+      "llm": "mimo",
+      "asr": "mimo_asr",
+      "tts": "breeze"
+    },
+    "asr": {
+      "label": "MiMo ASR",
+      "base_url": "https://api.xiaomimimo.com/v1",
+      "model": "mimo-v2.5-asr",
+      "configured": true,
+      "has_key": true
+    },
+    "llm": {
+      "label": "MiMo LLM",
+      "base_url": "https://api.xiaomimimo.com/v1",
+      "model": "mimo-v2.6-flash",
+      "configured": true,
+      "has_key": true
+    },
+    "tts": {
+      "label": "Breeze TTS",
+      "base_url": "https://api.breeze.blue",
+      "model": "breeze-tts-2",
+      "configured": true,
+      "has_key": true
+    },
+    "scorer": {
+      "label": "DeepSeek Flash",
+      "base_url": "",
+      "model": "",
+      "configured": false,
+      "has_key": true
+    }
+  },
+  "results": [
+    {
+      "provider": "Breeze TTS",
+      "adapter": "breeze-tts",
+      "mode": "real",
+      "ok": true,
+      "error": "",
+      "metrics": {
+        "total_ms": 3725,
+        "first_chunk_ms": null,
+        "bytes": 91776,
+        "mime": "audio/mpeg",
+        "supports_streaming": true
+      },
+      "detail": {
+        "text": "你好，我是你的学习搭子。今天用你自己的话说说，agent 是什么。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "probe": [
+    {
+      "provider": "DeepSeek",
+      "model": "deepseek-chat",
+      "latency_ms": 1879,
+      "tool_calls": [
+        {
+          "name": "search_materials",
+          "arguments": "{\"query\": \"Agent Loop\", \"top_k\": 5}"
+        }
+      ],
+      "content": "",
+      "ok": true
+    },
+    {
+      "provider": "MiMo",
+      "model": "mimo-v2.6-flash",
+      "latency_ms": 2625,
+      "tool_calls": [
+        {
+          "name": "search_materials",
+          "arguments": "{\"query\": \"Agent Loop\", \"top_k\": 5}"
+        }
+      ],
+      "content": "",
+      "ok": true
+    }
+  ],
+  "judge": {
+    "passed": 10,
+    "total": 10,
+    "threshold": 8,
+    "ok": true,
+    "cases": [
+      {
+        "id": 1,
+        "text": "材料里的 Agent Loop 是什么？",
+        "expect": "local",
+        "why": "概念问题，应先查本地或概念表",
+        "ok": true,
+        "tool_calls": 2,
+        "web_calls": 0,
+        "tools": [
+          "search_materials",
+          "read_concept"
+        ],
+        "budget_exhausted": false,
+        "fallback_reason": null,
+        "content": "简单说，Agent Loop（智能体循环）就是模型反复经历“思考→调用工具→看结果→再决定下一步”的过程，直到任务完成才停下来 [1]。不过你材料里对它提得很轻，只记了一句“deepseek harness 有录播课讲，agent loop 都有讲” [1]，更细的实现还没展开。想深入的话，我们可以从“一轮循环里模型具体要做哪几步判断”开始聊。",
+        "sources": 2
+      },
+      {
+        "id": 2,
+        "text": "工具调用和 function calling 有什么区别？",
+        "expect": "local",
+        "why": "概念区分，应查本地",
+        "ok": true,
+        "tool_calls": 2,
+        "web_calls": 0,
+        "tools": [
+          "search_materials",
+          "read_concept"
+        ],
+        "budget_exhausted": false,
+        "fallback_reason": null,
+        "content": "材料里没有直接讲到，以下是一般知识：Function calling 是模型层面的一种能力约定——你先声明一组带参数 schema 的函数，模型在需要时输出结构化的“要调用哪个函数、参数是什么”，实际执行仍由你的代码完成；Tool calling 是更宽的说法，通常口径下它基本就是 function calling 的推广版（工具不限于函数，还可能是检索、代码执行、MCP 服务等），各家 API 命名混用很常见，重点看它是不是同一套“模型出结构化调用意图、外部执行”的机制[1][2]。",
+        "sources": 2
+      },
+      {
+        "id": 3,
+        "text": "今天 agent 领域有什么最新发布？",
+        "expect": "web",
+        "why": "时效问题，应查网页",
+        "ok": true,
+        "tool_calls": 2,
+        "web_calls": 2,
+        "tools": [
+          "search_web",
+          "search_web"
+        ],
+        "budget_exhausted": false,
+        "fallback_reason": null,
+        "content": "材料里没有直接讲到，以下是最近一周的网页动态，供你参考：\n\n模型侧：Anthropic 11月10日发布 Fable 5.2，主打千级智能体调度 [1]；Google 11月12日推出 Gemini 4 Hydrogen，侧重 Agent 工作流和任务执行速度 [2]。框架侧：Google ADK Python 2.14.0 把 A2A、执行环境、评估转正；AG2 1.3.0（11月4日）、Microsoft Agent Framework .NET 1.28.0（11月6日）、Mastra 1.83.0（11月13日）也都有更新 [4]。\n\n另外提醒一下：11月17日，微软 `agent-framework` 的 PyPI 包 1.26.1 和 1.26.2 被植入了窃取凭据的代码，约一小时内被下架；建议固定使用干净的 1.26.0 [5][6]。",
+        "sources": 5
+      },
+      {
+        "id": 4,
+        "text": "联网查一下 2026 年 agent 框架对比",
+        "expect": "web",
+        "why": "用户显式要求联网",
+        "ok": true,
+        "tool_calls": 2,
+        "web_calls": 2,
+        "tools": [
+          "search_web",
+          "search_web"
+        ],
+        "budget_exhausted": false,
+        "fallback_reason": null,
+        "content": "查到了几篇 2026 年的横评，主流结论比较一致：选型先看“你要的是单点工具、可视化工作流，还是多 agent 协作”[2]。粗略分三档：要状态机/断点恢复/可审计的生产流程选 LangGraph，要快速搭角色分工原型选 CrewAI，AutoGen 2026 已进维护模式、官方指向 Microsoft Agent Framework（社区分支 AG2）[1][2]。\n\n想深入比哪一块？是看具体某个框架的优缺点，还是让我按你的场景（做原型 vs 上生产、有没有 .NET 栈）帮你缩小范围？",
+        "sources": 5
+      },
+      {
+        "id": 5,
+        "text": "不用查资料，直接说说 agent 和 workflow 的区别。",
+        "expect": "none",
+        "why": "用户明确说不用查",
+        "ok": true,
+        "tool_calls": 0,
+        "web_calls": 0,
+        "tools": [],
+        "budget_exhausted": false,
+        "fallback_reason": null,
+        "content": "材料里没有直接讲到，以下是一般知识：workflow 是预先编排好的固定步骤，路径和分支基本写死；agent 则是让模型自己根据目标决定下一步、调用什么工具、什么时候停，灵活但更不可控。一句话：workflow 靠人设计流程，agent 靠模型现场决策。",
+        "sources": 0
+      },
+      {
+        "id": 6,
+        "text": "你好，今天有点累。",
+        "expect": "none",
+        "why": "闲聊，不该查",
+        "ok": true,
+        "tool_calls": 0,
+        "web_calls": 0,
+        "tools": [],
+        "budget_exhausted": false,
+        "fallback_reason": null,
+        "content": "材料里没有直接讲到，以下是一般知识：\n嗨，累了就先歇会儿，不用急着学。想聊两句、随便问问，还是干脆放松一下？",
+        "sources": 0
+      },
+      {
+        "id": 7,
+        "text": "解释一下 ReAct 这个说法。",
+        "expect": "local",
+        "why": "学习问题，应先查本地",
+        "ok": true,
+        "tool_calls": 2,
+        "web_calls": 0,
+        "tools": [
+          "read_concept",
+          "search_materials"
+        ],
+        "budget_exhausted": false,
+        "fallback_reason": null,
+        "content": "材料里没有直接讲到，以下是一般知识：ReAct 就是让大模型“边想边做”——每一步先说一句 Reasoning（我该做什么），再发一个 Action（比如去搜索或调用某个工具），拿到 Observation 后再继续想，循环到能给出答案为止。这样比一次性硬答更靠谱，也方便你在产品里把中间的思考过程和工具调用链路可视化出来（你们笔记里提到的“思考过程可视化”其实是同一路思路）[3]。",
+        "sources": 2
+      },
+      {
+        "id": 8,
+        "text": "2026 年 11 月有什么新的 AI 模型发布？",
+        "expect": "web",
+        "why": "时效问题，应查网页",
+        "ok": true,
+        "tool_calls": 2,
+        "web_calls": 1,
+        "tools": [
+          "search_web",
+          "search_materials"
+        ],
+        "budget_exhausted": false,
+        "fallback_reason": null,
+        "content": "你的本地材料里没有讲这个，所以下面这些来自网上检索，而且来源都是第三方汇总站，数字和型号最好自己再核对一下：11 月比较受关注的发布有 OpenAI GPT-6.2 Astra、Google Gemini 4 Carbon/Hydrogen、Anthropic Claude Fable 5.2，还有阿里的 Qwen4-Max [1][2]；11 月 24 日国内集中发布的一批 AI 模型包括智谱 GLM-5.4（750B，循环 Transformer）、Qwen4-Max（2.4T，API 费用较上一代降低 60%）、蚂蚁 LingSante 医疗模型和商汤 SenseNova Loop-9B 等 [2]。\n\n如果你想把这些新模型和咱们课上讲的模型选型、架构对上号，我可以帮你一起梳理一下。",
+        "sources": 5
+      },
+      {
+        "id": 9,
+        "text": "先说结论，不要查：Agent Loop 为什么需要停止条件？",
+        "expect": "none",
+        "why": "用户明确不要查",
+        "ok": true,
+        "tool_calls": 0,
+        "web_calls": 0,
+        "tools": [],
+        "budget_exhausted": false,
+        "fallback_reason": null,
+        "content": "材料里没有直接讲到，以下是一般知识：\n结论：因为 Agent Loop 是“想→做→看结果→再想”的循环，没有停止条件它就会一直转下去——要么死循环烧掉时间和 token，要么在已经足够好的答案上反复折腾不停手。所以停止条件就是给循环一个“到此为止”的出口。\n\n材料里没有直接讲到，以下是一般知识：常见的停止条件有任务完成、达到步数或预算上限、连续无进展、出错不可恢复这几种。",
+        "sources": 0
+      },
+      {
+        "id": 10,
+        "text": "换个说法再查：智能体循环和 agent loop 是一回事吗？",
+        "expect": "local",
+        "why": "同义说法，应能换词查本地",
+        "ok": true,
+        "tool_calls": 2,
+        "web_calls": 0,
+        "tools": [
+          "read_concept",
+          "search_materials"
+        ],
+        "budget_exhausted": false,
+        "fallback_reason": null,
+        "content": "是一回事——按材料里确认的概念，“Agent Loop”的别名就是“智能体循环”，定义是智能体反复思考、调用工具、看结果再继续的循环流程[1][2]。中英文叫法不同，指的是同一个东西，课上 deepseek harness 的录播也有讲到[2]。",
+        "sources": 1
+      }
+    ]
+  }
+}

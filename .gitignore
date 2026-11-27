@@ -1,0 +1,27 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+
+# 私有内容与运行时数据：不进版本库（锚定根目录，demo/ 里的公开内容要进库）
+/data/
+/materials/
+/concepts.yaml
+/seeds/question_bank.json
+*.wav
+docs/designs/asr-test-set/audio/
+
+# 由私有材料生成的验收产物：只留 agent harness 冒烟记录
+/docs/designs/review-20261125/*
+!/docs/designs/review-20261125/agent-harness-smoke.md
+!/docs/designs/review-20261125/agent-harness-smoke.json
+
+.gstack/
+
+# graphify 生成物（本地知识图谱；如需共享 graph.json 可删掉本行）
+graphify-out/
+
+# react-admin 管理后台：源码进仓库，构建产物不进
+admin-ui/node_modules/
+web/admin/

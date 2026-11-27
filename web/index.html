@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MOMO 学习搭子</title>
+  <link rel="stylesheet" href="/style.css?v=20261126e" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "/vendor/three/three.module.js",
+        "three/addons/": "/vendor/three/addons/",
+        "@pixiv/three-vrm": "/vendor/three-vrm/three-vrm.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <main>
+    <canvas id="stage"></canvas>
+
+    <div id="hud">
+      <div id="status">正在加载形象…</div>
+      <div id="bubble" class="hidden"></div>
+    </div>
+
+    <div id="chatbar">
+      <div id="convpicker">
+        <button id="convtrigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span id="convlabel">历史对话</span>
+          <span id="convchevron">▾</span>
+        </button>
+        <div id="convlist" class="hidden" role="listbox"></div>
+      </div>
+      <button id="newconversation">新对话</button>
+      <button id="historybtn" type="button" title="最近 24 小时的答题记录">答题记录</button>
+      <a id="adminlink" href="/admin/" title="内容影响面管理后台" aria-label="打开内容影响面管理后台">管理</a>
+    </div>
+
+    <div id="chatmenu" class="hidden" role="menu">
+      <button id="conv-rename" type="button" role="menuitem">重命名</button>
+      <button id="conv-delete" type="button" role="menuitem">删除对话</button>
+    </div>
+
+    <div id="chatpanel" class="hidden">
+      <div id="chattools">
+        <button id="modeswitch" type="button" title="切换自由对话 / 教学讲解" aria-pressed="false">自由</button>
+        <button id="chattoggle" type="button" aria-expanded="true">收起对话</button>
+      </div>
+      <div id="chatlog" class="card"></div>
+    </div>
+
+    <div id="controls">
+      <section id="session-panel" class="card hidden">
+        <div id="opening" class="hidden">
+          <div id="unitlabel" class="hidden"></div>
+          <p id="intro" class="hidden"></p>
+          <p id="lecture" class="hidden"></p>
+        </div>
+        <div id="progress"></div>
+        <p id="question"></p>
+        <div id="options"></div>
+        <div id="score-line" class="hidden"></div>
+        <p id="advance-hint" class="hidden">看完点「下一题」继续</p>
+      </section>
+
+      <div id="result" class="card hidden"></div>
+
+      <div id="textrow" class="hidden">
+        <input id="textinput" placeholder="输入你的答案，回车提交" autocomplete="off" />
+        <button id="send">提交</button>
+        <button id="ask" type="button">提问</button>
+        <div id="askmenu" class="hidden" role="menu">
+          <button type="button" data-intent="teach">讲讲</button>
+          <button type="button" data-intent="clarify">这题什么意思</button>
+        </div>
+      </div>
+
+      <button id="talk">开始说话</button>
+
+      <div id="actions">
+        <button id="knowledge" type="button">知识库</button>
+        <button id="start">开始今天的学习</button>
+        <button id="finish" class="hidden">提前结束</button>
+      </div>
+
+      <div id="metrics"></div>
+    </div>
+
+    <div id="kbpanel" class="hidden" role="dialog" aria-modal="true" aria-labelledby="kbtitle">
+      <div class="kb-sheet">
+        <header class="kb-head">
+          <div>
+            <h2 id="kbtitle">知识库</h2>
+            <p class="kb-subtitle">今天学什么 · 掌握程度</p>
+          </div>
+          <button id="kbclose" type="button" aria-label="关闭知识库">关闭</button>
+        </header>
+        <section id="kbtoday" class="kb-section"></section>
+        <section id="kbprogress" class="kb-section"></section>
+        <section id="kbhistory" class="kb-section"></section>
+      </div>
+    </div>
+
+    <div id="historypanel" class="hidden" role="dialog" aria-modal="true" aria-labelledby="historytitle">
+      <div class="kb-sheet">
+        <header class="kb-head">
+          <div>
+            <h2 id="historytitle">答题记录</h2>
+            <p class="kb-subtitle">最近 24 小时答过的题</p>
+          </div>
+          <button id="historyclose" type="button" aria-label="关闭答题记录">关闭</button>
+        </header>
+        <section id="historylist" class="kb-section"></section>
+      </div>
+    </div>
+
+    <div id="toast" class="hidden" role="status"></div>
+  </main>
+  <script type="module" src="/app.js?v=20261127b"></script>
+</body>
+</html>
