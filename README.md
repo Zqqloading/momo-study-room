@@ -3,6 +3,13 @@
 MOMO 是一个本地优先的 AI 学习搭子：材料经摄取成为带出处的知识，开始学习时按「最近失手 → 掌握度最低」
 选题，一场 5 题逐题评分；自由对话可查本地知识库，必要时联网搜索。语音与 3D 形象随仓库分发。
 
+![MOMO 学习搭子](docs/assets/screenshot-home.png)
+
+**English** — MOMO is a local-first AI study companion. Feed it your notes, get cited knowledge,
+study in 5-question units with per-answer scoring, and talk freely with retrieval-backed answers.
+A 3D digital human (VRM), voice input and an admin console ship with the repo. Runs offline with the
+bundled demo content — no API key required. Python + FastAPI, SQLite/FTS5, three.js, Docker.
+
 1.0.0 的四个里程碑：
 
 - **学习单元与进度驱动选题**：开始学习先找最近失手、再找掌握度最低；一场 5 题，开场说出提议，结算更新 mastery。
@@ -63,6 +70,8 @@ python -m core.reindex
 不会再加载 `demo/`。也可以把内容放在别的目录，用 `CONTENT_DIR` 指过去。
 
 ## 管理后台
+
+![管理后台](docs/assets/screenshot-admin.png)
 
 管理后台用 react-admin，源码在 `admin-ui/`，构建产物输出到 `web/admin/`，由同一个 BFF 在
 `/admin/` 托管。Docker 镜像已自动构建；本地跑需要自己构建一次：
